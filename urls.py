@@ -6,7 +6,6 @@ from django.contrib import admin
 
 from mezzanine.core.views import direct_to_template
 
-
 admin.autodiscover()
 
 # Add the urlpatterns for any custom Django applications here.
@@ -46,7 +45,7 @@ urlpatterns += patterns('',
     # "/.html" - so for this case, the template "pages/index.html"
     # should be used if you want to customize the homepage's template.
 
-    url("^$", "moderna", {"slug": "/"}, name="home"),
+    url("^$", "mezzanine.pages.views.page" , {"slug": "/"}, name="home"),
 
     # HOMEPAGE FOR A BLOG-ONLY SITE
     # -----------------------------
@@ -86,7 +85,7 @@ urlpatterns += patterns('',
     # need to use the ``SITE_PREFIX`` setting as well.
 
     # ("^%s/" % settings.SITE_PREFIX, include("mezzanine.urls"))
-    ("^", include("mezzanine_events.urls")),
+    #("^", include("mezzanine_events.urls")),
 )
 
 # Adds ``STATIC_URL`` to the context of error pages, so that error

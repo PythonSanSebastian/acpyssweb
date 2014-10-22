@@ -6,6 +6,7 @@ PySS Society website
 
 Requirements
 =========
+#Python3
 
 Python:
 pip install mezzanine

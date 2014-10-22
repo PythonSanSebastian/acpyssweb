@@ -223,7 +223,10 @@ ROOT_URLCONF = "%s.urls" % PROJECT_DIRNAME
 # or "C:/www/django/templates".
 # Always use forward slashes, even on Windows.
 # Don't forget to use absolute paths, not relative paths.
-TEMPLATE_DIRS = (os.path.join(PROJECT_ROOT, "templates"),)
+TEMPLATE_DIRS = (
+                 #os.path.join(PROJECT_ROOT, "moderna", "templates"),
+                 os.path.join(PROJECT_ROOT, "templates"),
+                 )
 
 
 ################
@@ -249,12 +252,10 @@ INSTALLED_APPS = (
     "mezzanine.pages",
     "mezzanine.galleries",
     "mezzanine.twitter",
-    "mezzanine_events",
+    #"mezzanine_events",
     #"mezzanine.accounts",
     #"mezzanine.mobile",
 )
-
-THEME = "mezzanine_html5boilerplate"
 
 # List of processors used by RequestContext to populate the context.
 # Each one should be a callable that takes the request object as its

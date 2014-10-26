@@ -1,0 +1,104 @@
+{% extends "base.html" %}
+{% load i18n  mezzanine_tags staticfiles%}
+{% block meta_title %}{% trans "Home" %}{% endblock %}
+{% block title %}{% trans "Home" %}{% endblock %}
+{% block breadcrumb_wrapper %}
+{% endblock %}
+
+
+{% block main %}{{ block.super }}
+{% block breadcrumb_menu %}
+{% endblock %}
+
+
+{% block left_wrapper %}
+{% endblock %}
+
+
+<section id="{% block section_id %}featured{% endblock %}">
+	<div class="col-md-{% block main_col_size %}none{% endblock %} {% block main_class %}{% endblock %}">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- divider -->
+<div class="row">
+	<div class="col-lg-12">
+		<div class="solidline"></div>
+	</div>
+</div>
+<!-- end divider -->
+
+<section id="content">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12">
+				<h4 class="heading"> {{ page.aboutpage.featured_members_heading }}</h4>
+				<div class="row">
+					{% for member in page.aboutpage.members.all %}
+					<div class="col-lg-3">
+						<div class="box">
+							<div class="box-gray aligncenter">
+								<h4>{{ member.content }}</h4>
+								<img src="{{ MEDIA_URL }}{{ member.icon }}" alt="" />
+								<p class=""></p>
+							</div>
+							<div class="box-bottom">
+								<a href="{{ member.link }}">{{ member.title }}</a>
+							</div>
+						</div>
+					</div>
+					{% endfor %}	
+				</div>
+			</div>
+		</div>
+</section>
+		<!-- divider -->
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="solidline"></div>
+			</div>
+		</div>
+		<!-- end divider -->
+<section >
+		<div class="row">
+			<div class="col-lg-12">
+				<h4 class="heading">{{ page.aboutpage.featured_works_heading }}</h4>
+				<div class="row">
+					<section id="projects">
+						{% for work in page.aboutpage.works.all %}
+						<ul class="portfolio" id="thumbs">
+							<!-- Item Project and Filter Name -->
+							<li data-type="web" data-id="id-0" class="col-lg-3 design">
+								<div class="item-thumbs">
+									<!-- Fancybox - Gallery Enabled - Title - Full Image -->
+									<a href="{{ MEDIA_URL }}{{ work.icon }}" title="{{work.title}}" data-fancybox-group="gallery" class="hover-wrap fancybox"> <span class="overlay-img"></span> <span class="overlay-img-thumb font-icon-plus"></span> </a>
+									<!-- Thumb Image and Description -->
+									{% if work.image %}
+									<img alt="{{work.content}}" src="{{ MEDIA_URL }}{{ work.image }}">
+									{% else %}
+									<img alt="{{work.content}}" src="{{ MEDIA_URL }}{{ work.icon }}">
+									{% endif %}
+								</div>
+								<div class="box-bottom">
+									{% if work.link %}
+									<a href="{{ work.link }}">visit website</a>
+									{% endif %}
+								</div>
+							</li>
+							<!-- End Item Project -->
+						</ul>
+						{% endfor %}
+					</section>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+{% endblock %}

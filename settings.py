@@ -252,7 +252,8 @@ INSTALLED_APPS = (
     "mezzanine.pages",
     "mezzanine.galleries",
     "mezzanine.twitter",
-    #"mezzanine_events",
+    "mezzanine_events",
+    'django_social_share',
     #"mezzanine.accounts",
     #"mezzanine.mobile",
 )

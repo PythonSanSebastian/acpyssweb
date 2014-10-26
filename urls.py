@@ -85,7 +85,7 @@ urlpatterns += patterns('',
     # need to use the ``SITE_PREFIX`` setting as well.
 
     # ("^%s/" % settings.SITE_PREFIX, include("mezzanine.urls"))
-    #("^", include("mezzanine_events.urls")),
+    ("^", include("mezzanine_events.urls")),
 )
 
 # Adds ``STATIC_URL`` to the context of error pages, so that error

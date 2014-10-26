@@ -1,0 +1,69 @@
+{% extends "pages/page.html" %}
+{% load mezzanine_tags event %}
+{% block main %}{{ block.super }}
+
+{% block breadcrumb_wrapper %}
+{% endblock %}
+
+{% block left_wrapper %}
+{% endblock %}
+
+{% block right_wrapper %}
+{% endblock %}
+
+{% load social_share %}
+<div class="main_col_size">
+	<div class="col-md-3">
+		<b>Start</b></br>
+		{{page.event.date}} </br> {{page.event.start_time}} </br>
+		<b>End</b> </br>
+		{{page.event.end_date}} </br> {{page.event.end_time}} </br>
+		<b>Address</b>
+		<address>
+			{{page.event.location|linebreaksbr}}
+			<br />
+		</address>
+		{% google_static_map page.event 300 150 10 %}
+		<a href='{{page.event|google_nav_url}}' class="btn btn-small"> Get Directions </a>
+	</div>
+	<div class="col-md-6">
+		{% if page.event.speakers_list %}
+		<div class="span4">
+			<b>Speakers</b>
+			<address>
+				<ul>
+					{% for speaker in page.event.speakers_list %}
+					<li>
+						{{speaker}}
+					</li>
+					{% endfor %}
+				</ul>
+			</address>
+		</div>
+		{% endif %}
+		{% if page.event.rsvp %}
+		<div class="span">
+			<b>RSVP</b>
+			<p>
+				{{page.event.rsvp|linebreaksbr|link_emails}}
+			</p>
+		</div>
+		{% endif %}
+
+		<div>
+			<b>Meeting information</b> </br>
+			{{page.event.content|richtext_filter|safe}}
+		</div>
+
+	</div>
+
+	<div class="col-md-3">
+		<a href='{{page.event|google_calendar_url}}' > Add to Google Calendar </a> </br> <a href='{{page.event|icalendar_url}}' > Add to Outlook/iCal </a>
+		{% post_to_facebook "{{event.get_absolute_url}}" "Share in facebook" %}
+		{% post_to_twitter "{{event.get_absolute_url}}"  "Share in twitter" "Share in twitter"%}
+	</div>
+
+</div>
+
+
+{% endblock %}

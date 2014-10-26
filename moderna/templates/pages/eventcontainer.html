@@ -1,0 +1,41 @@
+{% extends "pages/page.html" %}
+{% load mezzanine_tags event %}
+{% block main %}{{ block.super }}
+
+
+{% block breadcrumb_wrapper %}
+{% endblock %}
+
+{% block left_wrapper %}
+{% endblock %}
+
+{% block right_wrapper %}
+{% endblock %}
+
+{% load social_share %}
+
+<div class="row">
+	<div class="col-md-4"></br></div>
+	<div  class="span4">
+		<a href='{{page.eventcontainer|icalendar_url:"webcal"}}' target="_blank" class="btn btn-small"> Subscribe to all events in Google Calendar/Outlook/iCal </a>
+		
+		{% for event in page.eventcontainer.events %}
+		<div class="row">
+			<div class="col-md-4">
+				<h3><a href="{{event.get_absolute_url}}">{{event.title}}</a></h3>
+			</div>
+			<div class="col-md-4">
+				<small> Date: From {{event.event.date}}, {{event.event.start_time}} to {{event.event.end_date}}, {{event.event.end_time}}</small>
+			</div>
+			<div class="col-md-4">
+				<a href="{{event.get_absolute_url}}" class="btn">More info &rarr;</a>
+				{% post_to_facebook "{{event.get_absolute_url}}" "share in facebook" %}
+				{% post_to_twitter "{{event.get_absolute_url}}"  "Post to twitter" %}
+			</div>
+		</div>
+		{% endfor %}
+		
+	</div>
+</div>
+
+{% endblock %}

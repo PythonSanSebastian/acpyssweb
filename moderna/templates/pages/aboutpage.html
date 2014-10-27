@@ -15,12 +15,50 @@
 {% endblock %}
 
 
+
+<!-- SLIDES -->
+{% if page.aboutpage.slides.all %}
+<section id="content">
+    <div class="row">
+        <div class="col-lg-12">
+        <!-- Slider -->
+        <div id="main-slider" class="flexslider" >
+            {% for slide in page.aboutpage.slides.all %}
+            <ul class="slides">
+                <li>
+                    <img src="{{ MEDIA_URL }}{{ slide.image }}" alt="" height=20/>
+                     {% if slide.boxtitle %}
+                    <div class="">
+                        {% if slide.boxtitle %}
+                        <h3>{{ slide.boxtitle }}</h3> 
+                        {% endif %}
+                        {% if slide.content %}
+                        <p>{{ slide.content }}</p> 
+                        {% endif %}
+                        {% if slide.link %}
+                        <a href="{{ slide.link }}" class="btn btn-theme">More info</a>
+                        {% endif %}
+                    </div>
+                    {% endif %}
+                </li>
+            </ul>
+            {% endfor %}  
+        </div>
+        </div>
+    </div>
+</section>
+{% endif %}
+
+<!-- CONTENT -->
+{% if page.aboutpage.content %}
 <section id="{% block section_id %}featured{% endblock %}">
 	<div class="col-md-{% block main_col_size %}none{% endblock %} {% block main_class %}{% endblock %}">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12">
-					
+					{% editable page.aboutpage.content %}
+					{{ page.aboutpage.content|richtext_filters|safe }}
+					{% endeditable %}
 				</div>
 			</div>
 		</div>
@@ -34,7 +72,10 @@
 	</div>
 </div>
 <!-- end divider -->
+{% endif %}
 
+<!-- BOARD MEMBERS -->
+{% if page.aboutpage.members.all %}
 <section id="content">
 	<div class="container">
 		<div class="row">
@@ -66,6 +107,11 @@
 			</div>
 		</div>
 		<!-- end divider -->
+		{% endif %}
+		
+<!-- WORKS -->	
+
+{% if page.aboutpage.works.all %}
 <section >
 		<div class="row">
 			<div class="col-lg-12">
@@ -101,4 +147,5 @@
 		</div>
 	</div>
 </section>
+{% endif %}
 {% endblock %}

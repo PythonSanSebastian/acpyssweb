@@ -96,6 +96,10 @@ class BoardMembers(Orderable):
     link = models.CharField(max_length=2000, blank=True,
         help_text="Optional, if provided clicking the blurb will go here.", null=True)
 
+class Contact(Page):
+    map_url = odels.CharField(max_length=250,
+        help_text="Map url for custom google map", null=True,  blank=True)
+    
 class Works(Orderable):
     '''
     An icon box on a HomePage

@@ -69,6 +69,22 @@ class Slide(Orderable):
     link = models.CharField(max_length=2000, 
         help_text="Optional, if provided clicking the blurb will go here.", null=True,  blank=True)
 
+
+
+class AboutSlide(Orderable):
+    '''
+    A slide in a slider connected to a HomePage
+    '''
+    aboutpage = models.ForeignKey(AboutPage, related_name="slides")
+    image = FileField(verbose_name=_("Image"),
+        upload_to=upload_to("theme.Slide.image", "slider"),
+        format="Image", max_length=255, null=True, blank=True)
+    boxtitle = models.CharField(max_length=200, null=True, blank=True)
+    content = models.TextField(null=True, blank=True)
+    link = models.CharField(max_length=2000, 
+        help_text="Optional, if provided clicking the blurb will go here.", null=True,  blank=True)
+
+
 class IconBlurb(Orderable):
     '''
     An icon box on a HomePage

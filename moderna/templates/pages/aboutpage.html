@@ -49,12 +49,15 @@
 </section>
 {% endif %}
 
+{%if page.about.page.content %}
 <section id="{% block section_id %}featured{% endblock %}">
 	<div class="col-md-{% block main_col_size %}none{% endblock %} {% block main_class %}{% endblock %}">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12">
-					
+				    {% editable page.aboutpage.content %}
+                    {{ page.aboutpage.content|richtext_filters|safe }}
+                    {% endeditable %}
 				</div>
 			</div>
 		</div>

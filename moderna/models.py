@@ -136,3 +136,15 @@ class Portfolio(Page):
         verbose_name = _("Portfolio")
         verbose_name_plural = _("Portfolios")
 
+
+class Contact(Page, RichText):
+    '''
+    A page representing the format of the contact page
+    '''
+    map_url = models.CharField(max_length=250,
+        help_text="The heading under the icon blurbs", null=True,  blank=True)
+
+    class Meta:
+        verbose_name = _("Contact page")
+        verbose_name_plural = _("Contact page")
+    

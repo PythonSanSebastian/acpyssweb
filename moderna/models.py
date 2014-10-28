@@ -9,7 +9,6 @@ from mezzanine.core.models import RichText, Orderable, Slugged
 from mezzanine.pages.models import Page
 from mezzanine.utils.models import upload_to
 
-
 class HomePage(Page, RichText):
     '''
     A page representing the format of the home page
@@ -112,6 +111,7 @@ class BoardMembers(Orderable):
     link = models.CharField(max_length=2000, blank=True,
         help_text="Optional, if provided clicking the blurb will go here.", null=True)
 
+
 class Works(Orderable):
     '''
     An icon box on a HomePage
@@ -137,14 +137,14 @@ class Portfolio(Page):
         verbose_name_plural = _("Portfolios")
 
 
-class Contact(Page, RichText):
-    '''
-    A page representing the format of the contact page
-    '''
-    map_url = models.CharField(max_length=250,
-        help_text="The heading under the icon blurbs", null=True,  blank=True)
-
-    class Meta:
-        verbose_name = _("Contact page")
-        verbose_name_plural = _("Contact page")
-    
+# class Contact(Page, RichText):
+#     '''
+#     A page representing the format of the contact page
+#     '''
+#     map_url = models.CharField(max_length=250,
+#         help_text="The heading under the icon blurbs", null=True,  blank=True)
+# 
+#     class Meta:
+#         verbose_name = _("Contact page")
+#         verbose_name_plural = _("Contact page")
+#     

@@ -16,13 +16,13 @@
 
 
 
-
- {% if page.aboutpage.slides %}
+<!-- SLIDES -->
+{% if page.aboutpage.slides.all %}
 <section id="content">
     <div class="row">
         <div class="col-lg-12">
         <!-- Slider -->
-        <div id="main-slider" class="flexslider" style="max-height:300px;overflow:auto;">
+        <div id="main-slider" class="flexslider" >
             {% for slide in page.aboutpage.slides.all %}
             <ul class="slides">
                 <li>
@@ -49,15 +49,26 @@
 </section>
 {% endif %}
 
+<<<<<<< HEAD
 {%if page.about.page.content %}
+=======
+<!-- CONTENT -->
+{% if page.aboutpage.content %}
+>>>>>>> 80a02d8817152185f1f2f52a293175cfad1f7969
 <section id="{% block section_id %}featured{% endblock %}">
 	<div class="col-md-{% block main_col_size %}none{% endblock %} {% block main_class %}{% endblock %}">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12">
+<<<<<<< HEAD
 				    {% editable page.aboutpage.content %}
                     {{ page.aboutpage.content|richtext_filters|safe }}
                     {% endeditable %}
+=======
+					{% editable page.aboutpage.content %}
+					{{ page.aboutpage.content|richtext_filters|safe }}
+					{% endeditable %}
+>>>>>>> 80a02d8817152185f1f2f52a293175cfad1f7969
 				</div>
 			</div>
 		</div>
@@ -71,7 +82,10 @@
 	</div>
 </div>
 <!-- end divider -->
+{% endif %}
 
+<!-- BOARD MEMBERS -->
+{% if page.aboutpage.members.all %}
 <section id="content">
 	<div class="container">
 		<div class="row">
@@ -103,6 +117,11 @@
 			</div>
 		</div>
 		<!-- end divider -->
+		{% endif %}
+		
+<!-- WORKS -->	
+
+{% if page.aboutpage.works.all %}
 <section >
 		<div class="row">
 			<div class="col-lg-12">
@@ -138,4 +157,5 @@
 		</div>
 	</div>
 </section>
+{% endif %}
 {% endblock %}

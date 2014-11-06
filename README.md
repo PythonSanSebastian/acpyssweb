@@ -1,22 +1,28 @@
 acpyssweb
 =========
 
-PySS Society website
+PySS Society website, actually online at www.pyss.org
 
 
 Requirements
 =========
-#Python3
-
-Python:
-pip install mezzanine
+#Python2.7
 
 System:
+git
+
+Python:
+pip install -r requirements.txt
 
 
-Postgres:
+#Python3
+We are working to be able to work with python3
 
+
+#Postgres:
+##Instalation
 apt-get install postgresql-server-dev-X.Y
+##Python driver
 pip install psycopg2
 
 Run instrunction
@@ -26,7 +32,3 @@ Django style:
 (first time) python manage.py createdb
 
 (each time) python mmanage.py runserver
-
-
-Local configuration example for postgres:
-=========

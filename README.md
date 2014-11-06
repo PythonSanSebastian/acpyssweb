@@ -17,7 +17,7 @@ System:
 
 Postgres:
 
- *Ubuntu/Debian:
+ * Ubuntu/Debian:
 ```bash
 apt-get install postgresql-server-dev-X.Y
 pip install psycopg2
@@ -28,12 +28,12 @@ Run instrunction
 
 Django style:
 
- *(first time)
+ * (first time)
 ```bash
 python manage.py createdb
 ```
 
- *(each time)
+ * (each time)
 ```bash
 python mmanage.py runserver
 ```

@@ -1,34 +1,48 @@
 acpyssweb
 =========
 
-PySS Society website, actually online at www.pyss.org
+PySS Society website
 
 
 Requirements
 =========
-#Python2.7
+
+Python2.7:
+```bash
+pip install -r requirements.txt
+```
 
 System:
-git
-
-Python:
-pip install -r requirements.txt
 
 
-#Python3
-We are working to be able to work with python3
+Postgres:
 
-
-#Postgres:
-##Instalation
+ *Ubuntu/Debian:
+```bash
 apt-get install postgresql-server-dev-X.Y
-##Python driver
 pip install psycopg2
+```
 
 Run instrunction
 =========
+
 Django style:
 
-(first time) python manage.py createdb
+ *(first time)
+```bash
+python manage.py createdb
+```
 
-(each time) python mmanage.py runserver
+ *(each time)
+```bash
+python mmanage.py runserver
+```
+
+
+Local configuration example for postgres:
+=========
+
+
+
+License
+=========
